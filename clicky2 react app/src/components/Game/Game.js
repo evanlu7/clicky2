@@ -11,7 +11,7 @@ class Game extends Component {
 		matches,
 		score: 0,
 		highScore:0,
-		NavMessage: "Click away"
+		NavMessage: "Clicky"
 	};
 clicky = id => {
 	//copies the state matches array
@@ -52,10 +52,28 @@ this.setState({ score });
 };
 
 // render the game to the container here
+		// container with messages and score and high score
+render() {
+	return (
+	<Container>
+		<h1 className="forMessage">
+		{this.state.newGameMessage}
+		</h1>
+		<h2 className="scores">
+		Score:{this.state.score}
+		<br />
+		High Score: {this.state.highScore}
+		</h2>
 
-
-
-
-
-
+		{this.state.matches.map(match => (
+			<ClickItem>
+				setClicked={this.setClicked}
+				id={match.id}
+				image={match.image}
+			</ClickItem>
+			))}
+	</Container>
+	)
+	}
+}
 export default Game;
