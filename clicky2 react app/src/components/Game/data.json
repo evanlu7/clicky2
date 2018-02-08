@@ -3,7 +3,51 @@
 	"id":1,
 	"image": "./img/carl.jpg",
 	"clicked": false
-
+},
+{
+	"id":2,
+	"image": "./img/bolbi.jpg",
+	"clicked": false
+},
+{
+	"id":3,
+	"image": "./img/cindy.png",
+	"clicked": false
+},
+{
+	"id":4,
+	"image": "./img/hugh.png",
+	"clicked": false
+},
+{
+	"id":5,
+	"image": "./img/judy.png",
+	"clicked": false
+},
+{
+	"id":6,
+	"image": "./img/kylie-jimmy-neutron.jpg",
+	"clicked": false
+},
+{
+	"id":7,
+	"image": "./img/libby.png",
+	"clicked": false
+},
+{
+	"id":8,
+	"image": "./img/msfowl.jpg",
+	"clicked": false
+},
+{
+	"id":9,
+	"image": "./img/nick.png",
+	"clicked": false
+},
+{
+	"id":10,
+	"image": "./img/sheen.png",
+	"clicked": false
 },
 
 
