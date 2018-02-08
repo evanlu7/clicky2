@@ -10,8 +10,8 @@ class Game extends Component {
 	state = {
 		matches,
 		score: 0,
-		highScore:0
-		clickMessage
+		highScore:0,
+		NavMessage: "Click away"
 	};
 clicky = id => {
 	//copies the state matches array
