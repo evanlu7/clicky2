@@ -4,76 +4,116 @@ import Header from "../Header";
 import Container from "../Container";
 import ClickItem from "../ClickItem";
 import Footer from "../Footer";
-import data from "data.json";
+import data from "../../data.json";
 
 class Game extends Component {
 	state = {
-		matches,
+		data,
 		score: 0,
-		highScore:0,
-		NavMessage: "Clicky"
+		topScore:0
 	};
-clicky = id => {
-	//copies the state matches array
-const matches = this.state.matches;
-// filter function to set id of picture
-const clicked = matches.filter(match => match.id === id); 
-// check if clicked already with ids in json
-if (clicked[0].clicked = true){
-	score = 0;
-	NavMessage = "You Lose!!"
-// for loop to make all image clicked properties false
-for (i=0; i<matches.length; i++){
-	matches[i].clicked = false;
-}
-// reset the application
-	this.setState({newGameMessage});
-	this.setState({score});
-	// else statement for correct answer
-}else{
-	// change the state to true for clicked
-	clicked[0].clicked=true;
-	score++;
-
-	// to set high score
-	if (score>highScore){
-		highScore = score;
-		this.setState({ highScore });
+	componentDidMount () {
+		this.setState({ data: this.shuffleData(this.state.data) });
 	}
 
-	// shuffle array to mix up the pictures
-matches.sort(function(a,b){return 0.5 - Math.random()});
-
-// change the state in the new mixed array
-this.setState({ matches });
-this.setState({ score });
-
-}
+handleCorrectGuess = newData => {
+	const { topScore, score} = this.state;
+	const newScore = score + 1;
+	const newTopScore = newScore > ? newScore : topScore;
+	this.setState ({
+		data:this.shuffleData(newData),
+		score:newScore,
+		topScore: newTopScore
+	});
 };
 
-// render the game to the container here
-		// container with messages and score and high score
-render() {
-	return (
-	<Container>
-		<h1 className="forMessage">
-		{this.state.newGameMessage}
-		</h1>
-		<h2 className="scores">
-		Score:{this.state.score}
-		<br />
-		High Score: {this.state.highScore}
-		</h2>
+	handleIncorrectGuess = data => {
+		this.setState({
+			data:this.setState({
+				data:this.resetData(data),
+				score: 0
+			});
+	}
+	
+	resetData = data => {
+		const resetData = data.map(item => ({ ...item,click:false }));
+		return this.shuffleData(resetData);
+	};
 
-		{this.state.matches.map(match => (
-			<ClickItem>
-				setClicked={this.setClicked}
-				id={match.id}
-				image={match.image}
-			</ClickItem>
-			))}
-	</Container>
-	)
+shuffleData = data => {
+	let i = data.length -1;
+	while (i>0) {
+		const j = Math.floor(Math.random() * (i +1));
+		const temp = data[i];
+		data [i] = data [j];
+		data[j] = temp;
+		i--;
+	}
+}		return data;
+};
+
+handleItemClick = id => {
+	let guessedCorrectly = false;
+	const newData = this.state.data.map(item => {
+		const newItem = { ...item};
+			if (newItem.id === id) {
+				if (!newItem.clicked) {
+					newItem.clicked = true;
+					guessedCorrectly = true;
+				}
+			}
+		return newItem;
+	});
+	guessedCorrectly
+	? this.handleCorrectGuess(newData)
+	:this.handleIncorrectGuess (newData);
+};
+
+render () {
+	return (
+		<div>
+			<Nav score = {this.state.score} topScore={this.state.topScore} />
+			<Header />
+			<Container>
+				{this.state.data.map(item => (
+					<ClickItem
+						key={item.id}
+						id={item.id}
+						shake={!this.state.score && this.state.topScore}
+						handleClick={this.handleItemClick}
+						image={item.image}
+					/>
+					))}
+				</Container>
+				<Footer />
+			</div>
+		);
 	}
 }
+
+
+
+
 export default Game;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

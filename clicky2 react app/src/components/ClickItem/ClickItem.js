@@ -1,10 +1,10 @@
 import React from "react";
 import "./ClickItem.css";
 
-const ClickItem = props => (
-	<div onClick={() => props.setClicked(props.id)} className = "picture">
+const ClickItem = ({setClicked, id, image }) => (
+	<div onClick={() => setClicked(id)} className = "picture">
 		<div className = "picture-container">
-			<img src = {props.image} alt = {props.name} />
+			<img src = {image}  />
 		</div>
 	</div>
 	);

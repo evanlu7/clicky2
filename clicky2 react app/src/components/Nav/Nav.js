@@ -1,11 +1,11 @@
 import React from "react";
 import "./Nav.css";
 import Game from "../Game";
+import NavMessage from "../Nav"
 
 const Nav = props => (
-	<h1 "Welcome to Jimmy Neutron Clicky!" />
 <nav className = "navbar">
-<NavMessage score = {props.score} highScore={props.highScore} />
+<NavMessage />
 
 </nav>
 	);

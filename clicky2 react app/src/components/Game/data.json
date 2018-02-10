@@ -48,7 +48,5 @@
 	"id":10,
 	"image": "./img/sheen.png",
 	"clicked": false
-},
-
-
+}
 ]
