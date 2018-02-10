@@ -1,0 +1,52 @@
+[
+{
+	"id":1,
+	"image": "/assets/images/carl.jpg",
+	"clicked": false
+},
+{
+	"id":2,
+	"image": "/assets/images/bolbi.jpg",
+	"clicked": false
+},
+{
+	"id":3,
+	"image": "/assets/images/cindy.png",
+	"clicked": false
+},
+{
+	"id":4,
+	"image": "/assets/images/hugh.png",
+	"clicked": false
+},
+{
+	"id":5,
+	"image": "/assets/images/judy.png",
+	"clicked": false
+},
+{
+	"id":6,
+	"image": "/assets/images/kylie-jimmy-neutron.jpg",
+	"clicked": false
+},
+{
+	"id":7,
+	"image": "/assets/images/libby.png",
+	"clicked": false
+},
+{
+	"id":8,
+	"image": "/assets/images/msfowl.jpg",
+	"clicked": false
+},
+{
+	"id":9,
+	"image": "/assets/images/nick.png",
+	"clicked": false
+},
+{
+	"id":10,
+	"image": "/assets/images/sheen.png",
+	"clicked": false
+}
+]
